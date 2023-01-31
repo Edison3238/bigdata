@@ -1,0 +1,94 @@
+<div class="container">
+    <header>
+        <nav>
+            <a href="/index">INICIO</a>
+        </nav>
+    </header>
+    <main>
+        <section class="featured-post">
+            <img src="https://www.logo.wine/a/logo/Microsoft_Azure/Microsoft_Azure-Logo.wine.svg" alt="Azure" width="200" height="300">
+            <h2>Consumo de API desde Azure AI</h2>
+            <p>El modelo Pre-Entrenado en Azure AI con el Dataset: sklearn.datasets.load_diabetes devuelve la API para consumo: http://a277731c-c253-4def-a240-5b3e606b80f3.westus.azurecontainer.io/score.
+            </p>
+
+            <p>En esta página se ingresan los valores solicitados para que el modelo pueda predecir la posibilidad de que el usuario tenga Diabetes.</p>
+
+        </section>
+        <section class="posts">
+            <article>
+                <h3>Ingrese los valores solicitados:</h3>
+                <div>
+                    <form>
+                        <div class="form-group">
+                            <label>1. Ingrese la edad:</label>
+                            <input [(ngModel)]="edad" [ngModelOptions]="{standalone: true}" type="number" name="edad" ngModel required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>2. Ingrese el sexo:</label>
+                            <input [(ngModel)]="sexo" [ngModelOptions]="{standalone: true}" type="number" name="sexo" ngModel required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>3. Ingrese el BMI: índice de masa corporal</label>
+                            <input [(ngModel)]="bmi" [ngModelOptions]="{standalone: true}" type="number" name="bmi" ngModel required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>4. Ingrese el BP: Presion Arterial Media</label>
+                            <input [(ngModel)]="bp" [ngModelOptions]="{standalone: true}" type="number" name="bp" ngModel required class="form-control">
+                        </div>
+
+                        <h4 class="center-text">Mediciones relacionadas con la Diabetes</h4>
+                        <div class="form-group">
+                            <label>5. Ingrese el S1 TC: Colesterol Sérico Total</label>
+                            <input [(ngModel)]="s1" [ngModelOptions]="{standalone: true}" type="number" name="s1" ngModel required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>6. Ingrese el S2 LDL: Lipoproteínas de Baja Densidad</label>
+                            <input [(ngModel)]="s2" [ngModelOptions]="{standalone: true}" type="number" name="s2" ngModel required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>7. Ingrese el S3 HDL: Lipoproteínas de Alta Densidad</label>
+                            <input [(ngModel)]="s3" [ngModelOptions]="{standalone: true} " type="number" name="s3" ngModel required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>8. Ingrese el S4 TCH: Colesterol total / HDL</label>
+                            <input [(ngModel)]="s4" [ngModelOptions]="{standalone: true}" type="number" name="s4" ngModel required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>9. Ingrese el S5 LTG: Nivel Sérico de Triglicéridos</label>
+                            <input [(ngModel)]="s5" [ngModelOptions]="{standalone: true}" type="number" name="s5" ngModel required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>10. Ingrese el S6 GLU: Nivel de azúar en sangre</label>
+                            <input [(ngModel)]="s6" [ngModelOptions]="{standalone: true}" type="number" name="s6" ngModel required class="form-control">
+                        </div>
+
+                    </form>
+                    <button (click)="consultar()" class="btn btn-primary">Enviar</button>
+                </div>
+            </article>
+
+        </section>
+
+        <div>
+            <article>
+                <h2>Predicción: {{prediccion}} %<br></h2>
+            </article>
+
+
+        </div>
+
+
+
+        <div class="progress-container">
+            <div [ngClass]="{'full': progressValue >= 100, 'green': progressValue >= 0 && progressValue < 50, 'orange': progressValue >= 51 && progressValue <= 70, 'red': progressValue > 71}" [style.width.%]="progressValue" class="progress-bar"></div>
+            <div class="progress-value"></div>
+        </div>
+
+
+
+
+    </main>
+    <footer>
+        <p>Copyright ©Universidad Técnica del Norte</p>
+    </footer>
+</div>
